@@ -37,3 +37,10 @@ if (theme) {
       }
     
   };
+
+  let current_url = document.location;
+    document.querySelectorAll(".nav-link").forEach(function(e){
+       if(e.href == current_url){
+          e.classList.add("important-nav");
+       }
+    });

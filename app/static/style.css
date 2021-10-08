@@ -55,6 +55,7 @@ section {
 nav {
   position: fixed;
   background-color: var(--dark-primary);
+  padding-right: 0.125rem;
 }
 
 button,
@@ -99,10 +100,6 @@ input[type="reset"] {
   background-color: var(--dark-secondary);
 }
 
-.nav-item:last-child .nav-link:hover {
-  color: var(--primary-color);
-}
-
 section.error-page {
   background-color: var(--primary-color);
   color: var(--dark-primary);
@@ -123,11 +120,13 @@ section.error-page p {
   margin-bottom: 3rem;
 }
 
-section.error-page button {
+section.error-page a {
   background: var(--secondary-color);
   border-radius: 0.5rem;
   font-size: 1.5rem;
   padding: 0.75rem;
+  text-decoration: none;
+  color: var(--dark-primary);
 }
 
 /* Small Screens */
@@ -158,6 +157,18 @@ section.error-page button {
     font-size: 1.6rem;
     margin: 0;
   }
+}
+
+.important-nav,
+.important-nav:hover,
+.important-nav::before,
+.important-nav:hover::before {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.important-nav:hover::before {
+  background: rgba(255, 97, 136, 0.1);
 }
 
 /* Large Screens */
@@ -206,11 +217,6 @@ section.error-page button {
 
   .nav-link:hover::before {
     display: block;
-  }
-
-  .nav-item:last-child .nav-link:hover::before {
-    border: 1px solid var(--primary-color);
-    background: rgba(255, 97, 136, 0.1);
   }
 
   #themeButton {

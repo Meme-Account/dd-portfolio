@@ -3,7 +3,9 @@ block main %}
 <section class="error-page">
   <h1>404 NOT FOUND</h1>
   <p>Oops, looks like this page no longer exists!</p>
-  <button>Go to the Homepage <i class="bi bi-arrow-right-short"></i></button>
+  <a href="{{url_for('home')}}"
+    >Go to the Homepage <i class="bi bi-arrow-right-short"></i
+  ></a>
 </section>
 
 {% endblock main %}
