@@ -55,7 +55,6 @@ section {
 nav {
   position: fixed;
   background-color: var(--dark-primary);
-  padding-right: 0.125rem;
 }
 
 button,
@@ -178,7 +177,8 @@ section.error-page a {
     height: 100vh;
     width: 5rem;
     border-right: 1.5px solid var(--light-primary);
-    transition: width 200ms ease;
+    transition: width 100ms ease;
+    padding-right: 0.125rem;
   }
 
   .navbar-nav {
