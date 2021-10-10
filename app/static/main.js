@@ -86,15 +86,85 @@ const homeQuiz1 = document.getElementById('homeQuiz1')
 const homeQuiz2 = document.getElementById('homeQuiz2')
 const homeQuiz3 = document.getElementById('homeQuiz3')
 const homeQuizAnswer = document.getElementById('homeQuizAnswer')
+const homeQuizDescription = document.getElementById('homeQuizDescription')
 
-homeQuiz1.addEventListener("click", ()=> {
-  homeQuizAnswer.style.display = 'block'
-});
+var homeQuizClicked = 0;
 
-homeQuiz2.addEventListener("click", ()=> {
-  homeQuizAnswer.style.display = 'block'
-});
+  homeQuiz1.addEventListener("click", ()=> {
+    if (homeQuizClicked == 0) {
+      homeQuizClicked = 1;
+      homeQuizAnswer.style.display = 'block'
+      homeQuizDescription.style.display = 'block'
+      homeQuizAnswer.innerHTML = "Correct; this one is the lie! You really know a lot about me. "
+      homeQuizDescription.innerHTML = "Although I like singing, I am not good enough to audition for the Voice Kids 😅. I have driven a bus 🚌 in India, because my school bus driver let me steer! I have also eaten a caterpillar 🐛 before, on a trip to China (it was delicious)!" 
+    
+      homeQuiz1.style.background = "rgba(168,220,118,0.1)"
+      homeQuiz1.style.borderColor = "rgb(168,220,118)"
+      homeQuiz1.style.color = "rgb(168,220,118)"
+  
+      homeQuiz2.style.background = "var(--transparent)"
+      homeQuiz2.style.borderColor = "var(--light-primary)"
+      homeQuiz2.style.color = "var(--light-primary)"
+  
+      homeQuiz3.style.background = "var(--transparent)"
+      homeQuiz3.style.borderColor = "var(--light-primary)"
+      homeQuiz3.style.color = "var(--light-primary)"
 
-homeQuiz3.addEventListener("click", ()=> {
-  homeQuizAnswer.style.display = 'block'
-});
+      homeQuiz1.style.cursor = "default";
+      homeQuiz2.style.cursor = "default";
+      homeQuiz3.style.cursor = "default";
+    }
+    
+  });
+  
+  homeQuiz2.addEventListener("click", ()=> {
+    if (homeQuizClicked == 0) {
+    homeQuizClicked = 1;
+    homeQuizAnswer.style.display = 'block'
+    homeQuizDescription.style.display = 'block'
+    homeQuizAnswer.innerHTML = "Incorrect; I have driven a bus before! The correct answer was the first option. "
+    homeQuizDescription.innerHTML = "Although I like singing, I am not good enough to audition for the Voice Kids 😅. I have driven a bus 🚌 in India, because my school bus driver let me steer! I have also eaten a caterpillar 🐛 before, on a trip to China (it was delicious)!" 
+  
+    homeQuiz1.style.background = "rgba(168,220,118,0.1)"
+    homeQuiz1.style.borderColor = "rgb(168,220,118)"
+    homeQuiz1.style.color = "rgb(168,220,118)"
+  
+    homeQuiz2.style.background = "rgba(255,97,136,0.1)"
+    homeQuiz2.style.borderColor = "rgb(255,97,136)"
+    homeQuiz2.style.color = "rgb(255,97,136)"
+  
+    homeQuiz3.style.background = "var(--transparent)"
+    homeQuiz3.style.borderColor = "var(--light-primary)"
+    homeQuiz3.style.color = "var(--light-primary)"
+
+    homeQuiz1.style.cursor = "default";
+      homeQuiz2.style.cursor = "default";
+      homeQuiz3.style.cursor = "default";
+    }
+  });
+  
+  homeQuiz3.addEventListener("click", ()=> {
+    if (homeQuizClicked == 0) {
+    homeQuizClicked = 1;
+    homeQuizAnswer.style.display = 'block'
+    homeQuizDescription.style.display = 'block'
+    homeQuizAnswer.innerHTML = "Incorrect; I have eaten a caterpillar before! The correct answer was the first option. "
+    homeQuizDescription.innerHTML = "Although I like singing, I am not good enough to audition for the Voice Kids 😅. I have driven a bus 🚌 in India, because my school bus driver let me steer! I have also eaten a caterpillar 🐛 before, on a trip to China (it was delicious)!" 
+  
+    homeQuiz1.style.background = "rgba(168,220,118,0.1)"
+    homeQuiz1.style.borderColor = "rgb(168,220,118)"
+    homeQuiz1.style.color = "rgb(168,220,118)"
+  
+    homeQuiz2.style.background = "var(--transparent)"
+    homeQuiz2.style.borderColor = "var(--light-primary)"
+    homeQuiz2.style.color = "var(--light-primary)"
+  
+    homeQuiz3.style.background = "rgba(255,97,136,0.1)"
+    homeQuiz3.style.borderColor = "rgb(255,97,136)"
+    homeQuiz3.style.color = "rgb(255,97,136)"
+
+    homeQuiz1.style.cursor = "default";
+      homeQuiz2.style.cursor = "default";
+      homeQuiz3.style.cursor = "default";
+    }
+  });

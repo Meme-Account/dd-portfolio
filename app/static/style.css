@@ -30,6 +30,15 @@
   background: var(--primary-color);
 }
 
+::-moz-selection {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+::selection {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+
 /* THEMES */
 .light {
   --light-primary: #2e2a2e;
@@ -96,7 +105,7 @@ section {
   text-align: center;
 }
 
-strong.section-highlight {
+.section-highlight {
   color: var(--secondary-color);
   font-weight: 700;
 }
@@ -252,7 +261,7 @@ section.error-page p {
   color: var(--light-primary);
   position: relative;
   display: inline-block;
-  transition: 0.3s;
+  transition: 0.1s;
 }
 
 .home-social-icon:hover {
@@ -359,7 +368,7 @@ section.error-page p {
 
 .home-quiz {
   display: flex;
-  margin: 0 0.5rem;
+  margin: 0.75rem 0.5rem;
 }
 
 .home-quiz-option {
@@ -377,6 +386,11 @@ section.error-page p {
 }
 
 .home-quiz-answer {
+  font-size: 1.2rem;
+}
+
+.home-quiz-answer,
+.home-quiz-description {
   display: none;
 }
 
