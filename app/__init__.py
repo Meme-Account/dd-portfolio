@@ -1,4 +1,10 @@
-from flask import Flask, render_template, url_for, redirect, request
+from flask import (
+    Flask,
+    render_template,
+    url_for,
+    redirect,
+    request,
+)
 
 app = Flask(__name__)
 app.secret_key = "secret123123abcdabcd"

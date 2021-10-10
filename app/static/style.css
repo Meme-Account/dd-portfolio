@@ -34,15 +34,17 @@
 .light {
   --light-primary: #2e2a2e;
   --dark-primary: #ffffff;
-  --dark-secondary: #fafafa;
+  --dark-secondary: #f7f7f7;
   --light-secondary: #201f1f;
+  --transparent: rgba(0, 0, 0, 0.1);
 }
 
 .dark {
   --light-primary: #ffffff;
   --dark-primary: #2e2a2e;
   --dark-secondary: #201f1f;
-  --light-secondary: #fafafa;
+  --light-secondary: #f0f0f0;
+  --transparent: rgba(255, 255, 255, 0.1);
 }
 
 body {
@@ -58,26 +60,45 @@ main {
 }
 
 section {
-  padding: 1rem;
+  padding: 2.5rem;
+  padding-top: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.section-paragraph {
+.section-paragraph,
+.home-quiz button {
   font-size: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .section-title {
   font-size: 2rem;
   text-align: center;
   color: var(--primary-color);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
 }
 
 .section-subtitle {
   font-size: 1.5rem;
   text-align: center;
   color: var(--secondary-color);
+}
+
+.section-title-hr {
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  width: 75%;
+  text-align: center;
+}
+
+strong.section-highlight {
+  color: var(--secondary-color);
+  font-weight: 700;
 }
 
 button,
@@ -106,10 +127,12 @@ a {
   text-decoration: none;
   display: inline-block;
   font-weight: 400;
+  transition: 0.3s;
 }
 
 .button:hover {
   background-color: var(--primary-color);
+  transform: scale(1.05);
 }
 
 .button-icon {
@@ -221,11 +244,15 @@ section.error-page p {
   display: grid;
   grid-template-columns: max-content;
   row-gap: 1rem;
+  z-index: 999;
 }
 
 .home-social-icon {
   font-size: 1.25rem;
   color: var(--light-primary);
+  position: relative;
+  display: inline-block;
+  transition: 0.3s;
 }
 
 .home-social-icon:hover {
@@ -235,8 +262,8 @@ section.error-page p {
 .home-blob {
   width: 270px;
   fill: var(--dark-primary);
-  -webkit-filter: drop-shadow(0 0.75rem 0.75rem var(--light-primary));
-  filter: drop-shadow(0 0.15rem 1.2rem var(--dark-secondary));
+  -webkit-filter: drop-shadow(0 0.75rem 0.75rem var(--dark-primary));
+  filter: drop-shadow(0 0.15rem 2rem var(--transparent));
 }
 
 .home-blob-img {
@@ -289,6 +316,7 @@ section.error-page p {
 .home-banner-scroll-button:hover {
   color: var(--light-secondary);
   transform: translateY(0.25rem);
+  filter: brightness(0.75);
 }
 
 .home-scroll-mouse {
@@ -304,9 +332,58 @@ section.error-page p {
   font-size: 1.25rem;
 }
 
+.home-social-icon .home-social-tooltip {
+  visibility: hidden;
+  font-size: 0.75rem;
+  background-color: var(--light-primary);
+  color: var(--dark-primary);
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+
+  position: absolute;
+  top: -3px;
+  left: 145%;
+}
+
+.home-social-icon .home-social-tooltip::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent var(--light-primary) transparent transparent;
+}
+
+.home-quiz {
+  display: flex;
+  margin: 0 0.5rem;
+}
+
+.home-quiz-option {
+  background-color: var(--transparent);
+  width: calc(100% / 3);
+  border-radius: 0.5rem;
+  border: 2px solid var(--light-primary);
+  padding: 1rem;
+  margin: 0 0.125rem;
+  transition: 0.3s;
+}
+
+.home-quiz-option:hover {
+  transform: scale(1.03);
+}
+
+.home-quiz-answer {
+  display: none;
+}
+
 /* LARGE SCREENS */
 @media screen and (min-width: 900px) {
-  .section-paragraph {
+  .section-paragraph,
+  .home-quiz {
     width: 50%;
   }
 
@@ -410,7 +487,19 @@ section.error-page p {
   .home-img {
     order: 1;
     justify-self: center;
+    transition: 0.3s;
+    animation: home-img-animation 2s alternate infinite ease-in-out;
   }
+
+  @keyframes home-img-animation {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.04);
+    }
+  }
+
   .home-banner {
     row-gap: 5rem;
     margin-left: auto;
@@ -418,26 +507,35 @@ section.error-page p {
   }
 
   .home-banner-content {
-    padding-top: 5.5rem;
     column-gap: 2rem;
   }
   .home-banner-scroll {
     display: block;
+    transform: translateY(1rem);
   }
   .home-banner-scroll-button {
     margin-left: 3rem;
   }
   .home-social {
-    transform: translateX(-3rem);
+    transform: translateX(-2rem);
+    transition: 0.3s;
+  }
+  .home-social-icon:hover {
+    transform: scale(1.2);
   }
   .home-quick-links {
     transform: translateY(1.5rem);
+  }
+
+  .home-social-icon:hover .home-social-tooltip {
+    visibility: visible;
   }
 }
 
 /* MEDIUM SCREENS */
 @media screen and (max-width: 900px) {
-  .section-paragraph {
+  .section-paragraph,
+  .home-quiz {
     width: 100%;
   }
 
@@ -486,6 +584,18 @@ section.error-page p {
     height: fit-content;
     padding-top: 2.5rem;
   }
+
+  .home-content {
+    padding-top: 2.5rem;
+  }
+
+  .home-quiz {
+    flex-direction: column;
+  }
+
+  .home-quiz-option {
+    width: 100%;
+  }
 }
 
 /* SMALL SCREENS */
@@ -496,6 +606,7 @@ section.error-page p {
 
   .home-content {
     grid-template-columns: 0.25fr 3fr;
+    padding-top: 2.5rem;
   }
 
   .home-blob {

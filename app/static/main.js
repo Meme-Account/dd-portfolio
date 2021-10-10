@@ -66,19 +66,14 @@ document.onmousemove = function(){
 
 var balls = document.getElementsByClassName("ball");
  
-//event.clientX FOR GET THE HORIZONTAL COORDINATE OF THE MOUSE
-//event.clientY FOR GET THE VERTICAL COORDINATE OF THE MOUSE
-//window.innerWidth FOR GET THE BROWSER WIDTH
-//window.innerHeight FOR GET THE BROWSER HEIGHT
- 
 var eyeball = document.querySelectorAll('.ball')
 window.addEventListener('mousemove', function(e) {
   var screenSizeX = this.innerWidth
   var screenSizeY = this.innerHeight
   var cursorX = e.pageX;
   var cursorY = e.pageY;
-  var percentX = (cursorX/screenSizeX) * 100
-  var percentY = (cursorY/screenSizeY) * 100
+  var percentX = Math.min((cursorX/screenSizeX) * 100, 86)
+  var percentY = Math.min((cursorY/screenSizeY) * 100, 86)
 
   eyeball.forEach(function(eyeball) {
     eyeball.style.top = percentY + '%';
@@ -86,3 +81,20 @@ window.addEventListener('mousemove', function(e) {
 
   })
 })
+
+const homeQuiz1 = document.getElementById('homeQuiz1')
+const homeQuiz2 = document.getElementById('homeQuiz2')
+const homeQuiz3 = document.getElementById('homeQuiz3')
+const homeQuizAnswer = document.getElementById('homeQuizAnswer')
+
+homeQuiz1.addEventListener("click", ()=> {
+  homeQuizAnswer.style.display = 'block'
+});
+
+homeQuiz2.addEventListener("click", ()=> {
+  homeQuizAnswer.style.display = 'block'
+});
+
+homeQuiz3.addEventListener("click", ()=> {
+  homeQuizAnswer.style.display = 'block'
+});

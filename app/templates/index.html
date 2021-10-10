@@ -3,14 +3,14 @@
 <section class="home-banner">
   <div class="home-banner-content">
     <div class="home-social">
-      <a href="www.linkedin.com" target="_blank" class="home-social-icon">
-        <i class="bi bi-linkedin"></i>
+      <a href="https://www.linkedin.com/in/tarini-bengani-7967611a9/" target="_blank" class="home-social-icon">
+        <i class="bi bi-linkedin"></i><span class="home-social-tooltip">Linkedin</span>
       </a>
-      <a href="www.instagram.com" target="_blank" class="home-social-icon">
-        <i class="bi bi-instagram"></i>
+      <a href="https://www.instagram.com/tarinibengani/" target="_blank" class="home-social-icon">
+        <i class="bi bi-instagram"></i><span class="home-social-tooltip">Instagram</span>
       </a>
-      <a href="www.discord.com" target="_blank" class="home-social-icon">
-        <i class="bi bi-discord"></i>
+      <a href="https://www.youtube.com/channel/UCnOBXpjJrLxS8v9GishNKnw" target="_blank" class="home-social-icon">
+        <i class="bi bi-youtube"></i><span class="home-social-tooltip">Youtube</span>
       </a>
     </div>
 
@@ -53,10 +53,10 @@
 
     <div class="home-banner-data">
       <h1 class="home-title">Hi, I'm <strong>Tarini</strong>.</h1>
-      <h3 class="home-subtitle">Welcome to my website!</h3>
+      <h3 class="home-subtitle">Welcome to my TED Talk!</h3>
       <ul class="home-quick-links">
         <li class="home-quick-link">
-          <a href="" class="button"
+          <a href="../static/imgs/Tarini-CV.pdf" download class="button"
             >Download CV <i class="button-icon bi bi-download"></i
           ></a>
         </li>
@@ -78,12 +78,19 @@
 </section>
 
 <section class="home-about">
-  <h1 class="section-title" id="about-me">About Me</h1>
+  <h1 class="section-title" id="about-me">About Me <hr class="section-title-hr"></h1>
   <p class="section-paragraph">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ea, excepturi
-    ullam perspiciatis quia eaque nobis tenetur cum fugiat temporibus? Corporis,
-    in repellendus debitis velit perferendis veniam error qui ad.
+    Hey! I'm <strong class="section-highlight">Tarini Bengani</strong>, a rising junior originally from India, but currently living in the Little Red Dot (AKA Singapore!). 
   </p>
+  <p class="section-paragraph">
+    Let me introduce myself through a game of <strong class="section-highlight">2 Truths 1 Lie</strong>. Click the button you think is a lie:
+  </p>
+  <div class="home-quiz">
+      <button id="homeQuiz1" class="home-quiz-option">I auditioned for Voice Kids Singapore. </button>
+      <button id="homeQuiz2" class="home-quiz-option">I have driven a bus. </button>
+      <button id="homeQuiz3" class="home-quiz-option">I have eaten a caterpillar. </button>
+  </div>
+  <p id="homeQuizAnswer" class="section-paragraph home-quiz-answer">Why are you looking here >:(</p>
 </section>
 
 {% endblock main %}
