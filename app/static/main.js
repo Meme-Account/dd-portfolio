@@ -1,3 +1,11 @@
+const navMenuButton = document.getElementById('navMenuButton');
+const sidebar = document.querySelector('.sidebar');
+
+navMenuButton.onclick = () => {
+  sidebar.classList.toggle("active")
+  navMenuButton.classList.toggle('bx-menu-alt-right')
+}
+
 const themeButton = document.getElementById('themeButton');
 const sunIcon = document.getElementById('sunIcon');
 const moonIcon = document.getElementById('moonIcon');
@@ -38,33 +46,25 @@ if (theme) {
     
   };
 
-  let current_url = document.location;
+  let current_url = window.location.href.split(/[?#]/)[0];;
     document.querySelectorAll(".nav-link").forEach(function(e){
        if(e.href == current_url){
           e.classList.add("important-nav");
        }
     });
 
-  //DEFINE VARIABLE
-var balls = document.getElementsByClassName("ball");
-
-//event.clientX FOR GET THE HORIZONTAL COORDINATE OF THE MOUSE
-//event.clientY FOR GET THE VERTICAL COORDINATE OF THE MOUSE
-//window.innerWidth FOR GET THE BROWSER WIDTH
-//window.innerHeight FOR GET THE BROWSER HEIGHT
-
-document.onmousemove = function(){
-  var x = event.clientX * 100 / window.innerWidth + "%";
-  var y = event.clientY * 100 / window.innerHeight + "%";
-
-  for(var i=0;i<2;i++){
-    balls[i].style.left = x;
-    balls[i].style.top = y;
-    balls[i].style.transform = "translate(-"+x+",-"+y+")";
+const between = (min, num, max) => {
+  if (min <= num && num <= max) {
+    return num
   }
+if (num < min) {
+  return min
 }
 
-var balls = document.getElementsByClassName("ball");
+if (num > max) {
+  return max
+}
+}
  
 var eyeball = document.querySelectorAll('.ball')
 window.addEventListener('mousemove', function(e) {
@@ -72,8 +72,8 @@ window.addEventListener('mousemove', function(e) {
   var screenSizeY = this.innerHeight
   var cursorX = e.pageX;
   var cursorY = e.pageY;
-  var percentX = Math.min((cursorX/screenSizeX) * 100, 86)
-  var percentY = Math.min((cursorY/screenSizeY) * 100, 86)
+  var percentX = between(16, ((cursorX/screenSizeX) * 100), 85)
+  var percentY = between(16, ((cursorY/screenSizeY) * 100), 85)
 
   eyeball.forEach(function(eyeball) {
     eyeball.style.top = percentY + '%';
@@ -87,6 +87,7 @@ const homeQuiz2 = document.getElementById('homeQuiz2')
 const homeQuiz3 = document.getElementById('homeQuiz3')
 const homeQuizAnswer = document.getElementById('homeQuizAnswer')
 const homeQuizDescription = document.getElementById('homeQuizDescription')
+const homeQuizDescriptionText = "Although I like singing 🎶, I am not good enough to audition for the Voice Kids 😅. I have driven a bus 🚌 in India, because my school bus driver let me steer! I have also eaten a caterpillar 🐛 before, on a trip to China (it was delicious)!" 
 
 var homeQuizClicked = 0;
 
@@ -96,11 +97,11 @@ var homeQuizClicked = 0;
       homeQuizAnswer.style.display = 'block'
       homeQuizDescription.style.display = 'block'
       homeQuizAnswer.innerHTML = "Correct; this one is the lie! You really know a lot about me. "
-      homeQuizDescription.innerHTML = "Although I like singing, I am not good enough to audition for the Voice Kids 😅. I have driven a bus 🚌 in India, because my school bus driver let me steer! I have also eaten a caterpillar 🐛 before, on a trip to China (it was delicious)!" 
+      homeQuizDescription.innerHTML = homeQuizDescriptionText
     
-      homeQuiz1.style.background = "rgba(168,220,118,0.1)"
-      homeQuiz1.style.borderColor = "rgb(168,220,118)"
-      homeQuiz1.style.color = "rgb(168,220,118)"
+      homeQuiz1.style.background = "var(--green-transparent)"
+      homeQuiz1.style.borderColor = "var(--green-color)"
+      homeQuiz1.style.color = "var(--green-color)"
   
       homeQuiz2.style.background = "var(--transparent)"
       homeQuiz2.style.borderColor = "var(--light-primary)"
@@ -123,15 +124,15 @@ var homeQuizClicked = 0;
     homeQuizAnswer.style.display = 'block'
     homeQuizDescription.style.display = 'block'
     homeQuizAnswer.innerHTML = "Incorrect; I have driven a bus before! The correct answer was the first option. "
-    homeQuizDescription.innerHTML = "Although I like singing, I am not good enough to audition for the Voice Kids 😅. I have driven a bus 🚌 in India, because my school bus driver let me steer! I have also eaten a caterpillar 🐛 before, on a trip to China (it was delicious)!" 
+    homeQuizDescription.innerHTML = homeQuizDescriptionText
   
-    homeQuiz1.style.background = "rgba(168,220,118,0.1)"
-    homeQuiz1.style.borderColor = "rgb(168,220,118)"
-    homeQuiz1.style.color = "rgb(168,220,118)"
+    homeQuiz1.style.background = "var(--green-transparent)"
+    homeQuiz1.style.borderColor = "var(--green-color)"
+    homeQuiz1.style.color = "var(--green-color)"
   
-    homeQuiz2.style.background = "rgba(255,97,136,0.1)"
-    homeQuiz2.style.borderColor = "rgb(255,97,136)"
-    homeQuiz2.style.color = "rgb(255,97,136)"
+    homeQuiz2.style.background = "var(--primary-transparent)"
+    homeQuiz2.style.borderColor = "var(--primary-color)"
+    homeQuiz2.style.color = "var(--primary-color)"
   
     homeQuiz3.style.background = "var(--transparent)"
     homeQuiz3.style.borderColor = "var(--light-primary)"
@@ -149,19 +150,19 @@ var homeQuizClicked = 0;
     homeQuizAnswer.style.display = 'block'
     homeQuizDescription.style.display = 'block'
     homeQuizAnswer.innerHTML = "Incorrect; I have eaten a caterpillar before! The correct answer was the first option. "
-    homeQuizDescription.innerHTML = "Although I like singing, I am not good enough to audition for the Voice Kids 😅. I have driven a bus 🚌 in India, because my school bus driver let me steer! I have also eaten a caterpillar 🐛 before, on a trip to China (it was delicious)!" 
+    homeQuizDescription.innerHTML = homeQuizDescriptionText
   
-    homeQuiz1.style.background = "rgba(168,220,118,0.1)"
-    homeQuiz1.style.borderColor = "rgb(168,220,118)"
-    homeQuiz1.style.color = "rgb(168,220,118)"
+    homeQuiz1.style.background = "var(--green-transparent)"
+    homeQuiz1.style.borderColor = "var(--green-color)"
+    homeQuiz1.style.color = "var(--green-color)"
   
     homeQuiz2.style.background = "var(--transparent)"
     homeQuiz2.style.borderColor = "var(--light-primary)"
     homeQuiz2.style.color = "var(--light-primary)"
   
-    homeQuiz3.style.background = "rgba(255,97,136,0.1)"
-    homeQuiz3.style.borderColor = "rgb(255,97,136)"
-    homeQuiz3.style.color = "rgb(255,97,136)"
+    homeQuiz3.style.background = "var(--primary-transparent)"
+    homeQuiz3.style.borderColor = "var(--primary-color)"
+    homeQuiz3.style.color = "var(--primary-color)"
 
     homeQuiz1.style.cursor = "default";
       homeQuiz2.style.cursor = "default";
