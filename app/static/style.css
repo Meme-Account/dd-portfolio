@@ -553,21 +553,60 @@ section.error-page p {
   width: 100%;
 }
 
+.bx-tada:hover {
+  -webkit-animation: tada 1.5s ease infinite !important;
+  animation: tada 1.5s ease infinite !important;
+}
+
+.bx-tada {
+  animation: none !important;
+  -webkit-animation: none !important;
+}
+
 .home-quote-container {
   height: fit-content;
-  padding: 1rem;
+  padding: 1.25rem;
   background-color: var(--primary-color);
   width: 100%;
   color: var(--dark-color);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.home-quote {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.home-quote-quotation {
+  text-align: left;
+  width: 100%;
+  font-size: 2.5rem;
+}
+
+.home-quote-author {
+  width: 100%;
+  text-align: right;
+  font-style: normal;
+}
+
+.home-quote-author::before {
+  content: "\2014\0020";
 }
 
 /* LARGE SCREENS */
 @media screen and (min-width: 900px) {
   .section-paragraph,
-  .home-quiz {
+  .home-quiz,
+  .home-quote,
+  .home-quote-author,
+  .home-quote-quotation {
     width: 60%;
   }
 
@@ -822,5 +861,13 @@ section.error-page p {
     height: 100%;
     border-radius: 0;
     outline: none !important;
+  }
+
+  .home-quote {
+    font-size: 1.25rem;
+  }
+
+  .home-quote-quotation {
+    font-size: 2rem;
   }
 }

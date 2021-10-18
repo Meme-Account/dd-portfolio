@@ -87,7 +87,7 @@ const homeQuiz2 = document.getElementById('homeQuiz2')
 const homeQuiz3 = document.getElementById('homeQuiz3')
 const homeQuizAnswer = document.getElementById('homeQuizAnswer')
 const homeQuizDescription = document.getElementById('homeQuizDescription')
-const homeQuizDescriptionText = "Although I like singing 🎶, I am not good enough to audition for the Voice Kids 😅. I have driven a bus 🚌 in India, because my school bus driver let me steer! I have also eaten a caterpillar 🐛 before, on a trip to China (it was delicious)!" 
+const homeQuizDescriptionText = "Although I like singing <i class='bx bxs-music bx-tada' ></i>, I am not good enough to audition for the Voice Kids <i class='bx bx-wink-tongue bx-tada'></i>. I have driven a bus <i class='bx bx-bus bx-tada' ></i> in India, because my school bus driver let me steer! I have also eaten a caterpillar before, on a trip to China (it was delicious)!" 
 
 var homeQuizClicked = 0;
 
