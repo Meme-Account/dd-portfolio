@@ -683,6 +683,10 @@ section.error-page p {
   position: relative;
 }
 
+.timeline-content h2 {
+  color: var(--primary-color);
+}
+
 /* BLOG */
 .blog-create-form,
 .blog-login-form {
@@ -744,7 +748,8 @@ section.error-page p {
   justify-content: center;
   overflow: hidden;
   object-fit: cover;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+  padding: 0;
 }
 
 .blog-post-banner img {
@@ -757,7 +762,8 @@ section.error-page p {
   width: 100%;
 }
 
-.blog-preview-buttons button {
+.blog-preview-buttons button,
+.blog-preeview-buttons form {
   width: 100%;
   text-align: center;
   font-size: 1.5rem;

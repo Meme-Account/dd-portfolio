@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block title %}{{post_title}}{% endblock title %} {%
+block main %} {% if preview %}
+<div class="blog-preview-buttons">
+  <button onclick="history.back()" class="blog-preview-back">
+    <i class="bx bx-arrow-back"></i> Back
+  </button>
+  <form action="{{url_for('blog_submit')}}" method="POST">
+    <input type="hidden" name="post-title" value="{{post_title}}" />
+    <input type="hidden" name="post-banner" value="{{post_banner}}" />
+    <input type="hidden" name="post-content" value="{{post_content}}" />
+    <button type="submit" class="blog-preview-check">
+      Submit <i class="bx bx-check"></i>
+    </button>
+  </form>
+</div>
+{% endif %}
+
+<section class="blog-post-banner">
+  <img src="{{ post_banner }}" alt="" />
+</section>
+
+<section class="blog-post">
+  <h1 class="section-title">
+    {{post_title}}
+    <hr class="section-title-hr" />
+  </h1>
+
+  <div class="blog-post-content">{{post_content | safe}}</div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    document.querySelectorAll("pre code").forEach((el) => {
+      hljs.highlightElement(el);
+    });
+  });
+</script>
+{% endblock main %}

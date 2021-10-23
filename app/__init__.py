@@ -6,6 +6,8 @@ from flask import (
     request,
 )
 
+from .db import create_post, get_post
+
 app = Flask(__name__)
 app.secret_key = "secret123123abcdabcd"
 
@@ -18,11 +20,6 @@ def home():
 @app.route("/skills")
 def skills():
     return render_template("skills.html")
-
-
-@app.route("/blog")
-def blog():
-    return render_template("blog.html")
 
 
 @app.route("/contact")
@@ -52,12 +49,48 @@ def blog_preview():
         post_content = req.get("post-content")
 
         return render_template(
-            "blog_preview.html",
+            "blog_post.html",
             post_title=post_title,
             post_banner=post_banner,
             post_content=post_content,
+            preview=True,
         )
     return redirect(url_for("blog_create"))
+
+
+@app.route("/blog/submit", methods=["GET", "POST"])
+def blog_submit():
+    if request.method == "POST":
+        req = request.form
+        post_title = req.get("post-title")
+        post_banner = req.get("post-banner")
+        post_content = req.get("post-content")
+
+        print("*" * 10)
+        print(post_title)
+        print("*" * 10)
+
+        create_post(post_title, post_banner, post_content)
+
+    return redirect(url_for("blog"))
+
+
+@app.route("/blog/post/<post_id>")
+def blog_post(post_id):
+    post_title, post_banner, post_content = get_post(post_id)
+
+    return render_template(
+        "blog_post.html",
+        post_title=post_title,
+        post_banner=post_banner,
+        post_content=post_content,
+        preview=False,
+    )
+
+
+@app.route("/blog")
+def blog():
+    return render_template("blog.html")
 
 
 @app.errorhandler(404)
