@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% block title %}Create Post{% endblock title %} {%
+block main %} {% if login == 'False' %}
+<section class="blog-login">
+  <h1 class="section-title">
+    Enter Password to Continue
+    <hr class="section-title-hr" />
+  </h1>
+  <form class="blog-login-form" action="/blog/create" method="post">
+    <input
+      type="password"
+      name="entered"
+      id="entered"
+      placeholder="Enter the password..."
+    />
+    <button type="submit">Submit</button>
+  </form>
+</section>
+{% endif %} {% if login == 'True' %}
+
+<section class="blog-create">
+  <h1 class="section-title">
+    Create Blog Post
+    <hr class="section-title-hr" />
+  </h1>
+  <form action="/blog/preview" class="blog-create-form" method="post">
+    <input type="text" name="post-title" placeholder="Post title..." />
+    <input type="text" name="post-banner" placeholder="Banner Image URL..." />
+
+    <textarea id="editor" name="post-content"> </textarea>
+
+    <button type="submit">Preview</button>
+  </form>
+</section>
+
+<script>
+  tinymce.init({
+    selector: "#editor",
+    plugins:
+      "print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons",
+    menubar: "file edit view insert format tools table help",
+    toolbar:
+      "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl",
+    toolbar_sticky: true,
+    autosave_ask_before_unload: true,
+    autosave_interval: "10s",
+    autosave_prefix: "{path}{query}-{id}-",
+    autosave_restore_when_empty: false,
+    autosave_retention: "2m",
+    importcss_append: true,
+    height: 600,
+    min_height: 400,
+    image_caption: true,
+    toolbar_mode: "sliding",
+    contextmenu: "link image imagetools table",
+    content_style: "body { font-family:Poppins; font-size:14px }",
+    content_css: "dark",
+    skin: "oxide-dark",
+  });
+</script>
+
+{% endif %} {% endblock main %}

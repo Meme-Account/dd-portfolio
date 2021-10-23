@@ -87,17 +87,16 @@ const homeQuiz2 = document.getElementById('homeQuiz2')
 const homeQuiz3 = document.getElementById('homeQuiz3')
 const homeQuizAnswer = document.getElementById('homeQuizAnswer')
 const homeQuizDescription = document.getElementById('homeQuizDescription')
-const homeQuizDescriptionText = "Although I like singing <i class='bx bxs-music bx-tada' ></i>, I am not good enough to audition for the Voice Kids <i class='bx bx-wink-tongue bx-tada'></i>. I have driven a bus <i class='bx bx-bus bx-tada' ></i> in India, because my school bus driver let me steer! I have also eaten a caterpillar before, on a trip to China (it was delicious)!" 
 
 var homeQuizClicked = 0;
 
+if (homeQuiz1 && homeQuiz2 && homeQuiz3) {
   homeQuiz1.addEventListener("click", ()=> {
     if (homeQuizClicked == 0) {
       homeQuizClicked = 1;
       homeQuizAnswer.style.display = 'block'
       homeQuizDescription.style.display = 'block'
       homeQuizAnswer.innerHTML = "Correct; this one is the lie! You really know a lot about me. "
-      homeQuizDescription.innerHTML = homeQuizDescriptionText
     
       homeQuiz1.style.background = "var(--green-transparent)"
       homeQuiz1.style.borderColor = "var(--green-color)"
@@ -124,7 +123,6 @@ var homeQuizClicked = 0;
     homeQuizAnswer.style.display = 'block'
     homeQuizDescription.style.display = 'block'
     homeQuizAnswer.innerHTML = "Incorrect; I have driven a bus before! The correct answer was the first option. "
-    homeQuizDescription.innerHTML = homeQuizDescriptionText
   
     homeQuiz1.style.background = "var(--green-transparent)"
     homeQuiz1.style.borderColor = "var(--green-color)"
@@ -150,7 +148,6 @@ var homeQuizClicked = 0;
     homeQuizAnswer.style.display = 'block'
     homeQuizDescription.style.display = 'block'
     homeQuizAnswer.innerHTML = "Incorrect; I have eaten a caterpillar before! The correct answer was the first option. "
-    homeQuizDescription.innerHTML = homeQuizDescriptionText
   
     homeQuiz1.style.background = "var(--green-transparent)"
     homeQuiz1.style.borderColor = "var(--green-color)"
@@ -169,3 +166,4 @@ var homeQuizClicked = 0;
       homeQuiz3.style.cursor = "default";
     }
   });
+}
