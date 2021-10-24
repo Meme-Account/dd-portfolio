@@ -1,8 +1,10 @@
+beautifulsoup4==4.10.0
 certifi==2021.10.8
 cffi==1.15.0
 charset-normalizer==2.0.7
 click==8.0.1
 cryptography==35.0.0
+DateTime==4.3
 Deprecated==1.2.13
 Flask==2.0.2
 gcloud==0.18.3
@@ -22,11 +24,14 @@ pycryptodome==3.11.0
 pyparsing==2.4.7
 Pyrebase4==4.5.0
 python-jwt==3.3.0
+pytz==2021.3
 requests==2.26.0
 requests-toolbelt==0.9.1
 rsa==4.7.2
 six==1.16.0
+soupsieve==2.2.1
 urllib3==1.26.7
 uuid==1.30
 Werkzeug==2.0.2
 wrapt==1.13.2
+zope.interface==5.4.0
