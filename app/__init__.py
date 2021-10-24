@@ -5,8 +5,7 @@ from flask import (
     redirect,
     request,
 )
-
-from .db import create_post, get_post
+from .db import create_post, get_post, get_posts
 
 app = Flask(__name__)
 app.secret_key = "secret123123abcdabcd"
@@ -47,12 +46,16 @@ def blog_preview():
         post_title = req.get("post-title")
         post_banner = req.get("post-banner")
         post_content = req.get("post-content")
+        post_tags = req.get("post-tags")
 
         return render_template(
             "blog_post.html",
             post_title=post_title,
             post_banner=post_banner,
             post_content=post_content,
+            post_tags=post_tags,
+            post_days="0",
+            post_hours="0",
             preview=True,
         )
     return redirect(url_for("blog_create"))
@@ -65,32 +68,35 @@ def blog_submit():
         post_title = req.get("post-title")
         post_banner = req.get("post-banner")
         post_content = req.get("post-content")
+        post_tags = req.get("post-tags").strip().split()
 
-        print("*" * 10)
-        print(post_title)
-        print("*" * 10)
+        post_id = create_post(post_title, post_banner, post_content, post_tags)
 
-        create_post(post_title, post_banner, post_content)
+        return redirect(url_for("blog_post", post_id=post_id))
 
     return redirect(url_for("blog"))
 
 
 @app.route("/blog/post/<post_id>")
 def blog_post(post_id):
-    post_title, post_banner, post_content = get_post(post_id)
+    post_title, post_banner, post_content, post_tags, post_time = get_post(post_id)
 
     return render_template(
         "blog_post.html",
         post_title=post_title,
         post_banner=post_banner,
         post_content=post_content,
+        post_tags=post_tags,
+        post_days=post_time[0],
+        post_hours=post_time[1],
         preview=False,
     )
 
 
 @app.route("/blog")
 def blog():
-    return render_template("blog.html")
+    posts = get_posts()
+    return render_template("blog.html", posts=posts)
 
 
 @app.errorhandler(404)

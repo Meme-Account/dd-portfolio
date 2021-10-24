@@ -1,5 +1,28 @@
 {% extends 'base.html' %} {% block title %}Blog{% endblock title %} {% block
 main %}
-<h1>BLOG</h1>
+<section class="blog">
+  {% for post in posts %}
+  <a href="{{url_for("blog_post", post_id=post[5])}}" class="blog-card">
+    <div
+      style="
+        background-image: url('{{ post[1] }}');
+      "
+      class="blog-card-image"
+    ></div>
+    <div class="blog-card-text">
+      <p class="blog-card-details">
+        {{post[4][0]}} days, {{post[4][1]}} hours ago
+      </p>
+      <h1 class="blog-card-title">{{post[0]}}</h1>
+      <p class="blog-card-preview">{{post[2] | safe}}</p>
+    </div>
+    <div class="blog-card-tags">
+      {% for tag in post[3] %}
+      <h5 href="#" class="blog-card-tag">{{tag}}</h5>
+      {% endfor %}
+    </div>
+  </a>
+  {% endfor %}
+</section>
 
 {% endblock main %}

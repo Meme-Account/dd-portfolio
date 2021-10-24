@@ -23,8 +23,23 @@ block main %} {% if login == 'False' %}
     <hr class="section-title-hr" />
   </h1>
   <form action="/blog/preview" class="blog-create-form" method="post">
-    <input type="text" name="post-title" placeholder="Post title..." />
-    <input type="text" name="post-banner" placeholder="Banner Image URL..." />
+    <input
+      required
+      type="text"
+      name="post-title"
+      placeholder="* Post title..."
+    />
+    <input
+      required
+      type="text"
+      name="post-banner"
+      placeholder="* Banner Image URL..."
+    />
+    <input
+      type="text"
+      name="post-tags"
+      placeholder="Post tags seperated by spaces"
+    />
 
     <textarea id="editor" name="post-content"> </textarea>
 

@@ -8,6 +8,7 @@ block main %} {% if preview %}
     <input type="hidden" name="post-title" value="{{post_title}}" />
     <input type="hidden" name="post-banner" value="{{post_banner}}" />
     <input type="hidden" name="post-content" value="{{post_content}}" />
+    <input type="hidden" name="post-tags" value="{{post_tags}}" />
     <button type="submit" class="blog-preview-check">
       Submit <i class="bx bx-check"></i>
     </button>
@@ -19,14 +20,24 @@ block main %} {% if preview %}
   <img src="{{ post_banner }}" alt="" />
 </section>
 
-<section class="blog-post">
+<article class="blog-post">
   <h1 class="section-title">
     {{post_title}}
     <hr class="section-title-hr" />
   </h1>
+  <h5 class="blog-post-details">
+    Created {{post_days}} days, {{post_hours}} hours ago
+  </h5>
 
   <div class="blog-post-content">{{post_content | safe}}</div>
-</section>
+  {% if not preview %}
+  <div class="blog-post-tags">
+    {% for tag in post_tags %}
+    <h5 class="blog-post-tag">{{tag}}</h5>
+    {% endfor %}
+  </div>
+  {% endif %}
+</article>
 
 <script>
   document.addEventListener("DOMContentLoaded", (event) => {
