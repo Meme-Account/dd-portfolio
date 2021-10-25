@@ -6,9 +6,12 @@ from flask import (
     request,
 )
 from .db import create_post, get_post, get_posts
+import os
 
 app = Flask(__name__)
-app.secret_key = "secret123123abcdabcd"
+app.secret_key = os.environ.get("APP_SECRET_KEY")
+
+from .emailer import send_mail
 
 
 @app.route("/")
@@ -21,15 +24,22 @@ def skills():
     return render_template("skills.html")
 
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
+    if request.method == "POST":
+        req = request.form
+        email = req.get("contact-email")
+        name = req.get("contact-name")
+        message = req.get("contact-message")
+
+        send_mail(email, name, message)
     return render_template("contact.html")
 
 
 @app.route("/blog/create", methods=["GET", "POST"])
 def blog_create():
     if request.method == "POST":
-        real = "abc123123abc"
+        real = f"{os.environ.get('BLOG_CREATE_PASSWORD')}"
         entered = request.form.get("entered")
         if entered != real:
             return redirect(url_for("blog"))

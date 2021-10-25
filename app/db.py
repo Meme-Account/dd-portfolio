@@ -2,16 +2,17 @@ import pyrebase
 import uuid
 from datetime import datetime
 from bs4 import BeautifulSoup
+import os
 
 firebaseConfig = {
-    "apiKey": "AIzaSyClq3WEdcovAdNx220_Za8ttyGTCqjCbY0",
+    "apiKey": f"{os.environ.get('FIREBASE_API_KEY')}",
     "authDomain": "tarini-portfolio.firebaseapp.com",
     "projectId": "tarini-portfolio",
     "storageBucket": "tarini-portfolio.appspot.com",
     "messagingSenderId": "227252525574",
     "appId": "1:227252525574:web:f638b7a1b5ab3a68c8c187",
     "measurementId": "G-FRKQ7SWVK2",
-    "databaseURL": "https://tarini-portfolio-default-rtdb.asia-southeast1.firebasedatabase.app/",
+    "databaseURL": f"{os.environ.get('FIREBASE_DATABASE_URL')}",
 }
 
 firebase = pyrebase.initialize_app(firebaseConfig)
