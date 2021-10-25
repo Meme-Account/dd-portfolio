@@ -549,11 +549,13 @@ section.error-page p {
   display: none;
 }
 
-.home-quote-section {
+.home-quote-section,
+.skills-quote-section {
   padding: 0;
 }
 
-.home-wave {
+.home-wave,
+.skills-wave {
   height: auto;
   width: 100%;
 }
@@ -568,7 +570,8 @@ section.error-page p {
   -webkit-animation: none !important;
 }
 
-.home-quote-container {
+.home-quote-container,
+.skills-quote-container {
   height: fit-content;
   padding: 1.25rem;
   background-color: var(--primary-color);
@@ -580,7 +583,8 @@ section.error-page p {
   justify-content: center;
 }
 
-.home-quote {
+.home-quote,
+.skills-quote {
   text-align: center;
   font-size: 2rem;
   font-weight: 500;
@@ -609,7 +613,8 @@ section.error-page p {
   content: "\2014\0020";
 }
 
-.home-wave-last {
+.home-wave-last,
+.skills-wave-last {
   background: var(--dark-secondary);
 }
 
@@ -964,7 +969,6 @@ section.error-page p {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;
 }
 
 .contact-container {
@@ -1104,6 +1108,133 @@ input:-khtml-autofill {
   background: linear-gradient(135deg, transparent 20%, var(--secondary-color));
   top: 10px;
   right: 30px;
+}
+
+/* SKILLS */
+.skills-quote-container {
+  padding: 3em 2em;
+}
+
+.skills-quote {
+  font-weight: bold;
+  max-width: none;
+}
+
+.skills-cv-section {
+  background-color: var(--dark-secondary);
+  padding: 2rem;
+  padding-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.skills-extracurriculars {
+  padding-bottom: 6rem;
+}
+
+.skills-cv-section h2 {
+  margin-right: 2rem;
+}
+
+.skills-cv-section a {
+  font-weight: bold;
+}
+
+.skills-cv-section a i {
+  font-size: 1.5rem;
+}
+
+.skills-card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.skills-knowledge-card-container,
+.skills-extracurriculars-card-container {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.skills-card {
+  background-color: var(--dark-secondary);
+  color: var(--light-primary);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  position: relative;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.skills-card:hover {
+  transform: scale(1.05);
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+}
+
+.skills-knowledge-card-container .skills-card:hover,
+.skills-extracurriculars-card-container .skills-card:hover {
+  transform: scale(1.025);
+}
+
+.skills-card > p {
+  margin-bottom: 2rem;
+  font-weight: 500;
+  width: 100%;
+}
+
+.skills-card > p strong {
+  color: var(--secondary-color);
+}
+
+.skills-card .skills-card-date {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  color: var(--transparent);
+}
+
+.skills-card .skills-card-tag {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.skills-card-image-container {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+  background-color: var(--light-color);
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.5rem;
+}
+
+.skills-card-image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.skills-card h3 {
+  font-size: 1.3rem;
+}
+
+.skills-extracurriculars-card-container .skills-card {
+  flex-direction: column;
+}
+
+.skills-extracurriculars-card-container .skills-card h3 {
+  width: 100%;
+  text-align: left;
+  color: var(--primary-color);
 }
 
 /* LARGE SCREENS */
@@ -1345,10 +1476,46 @@ input:-khtml-autofill {
   .contact-info-section {
     display: none;
   }
+
+  .skills-quote {
+    font-size: 1.75rem;
+  }
+
+  .skills-cv-section {
+    flex-direction: column;
+  }
+
+  .skills-cv-section h2 {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .skills-cv-section a {
+    font-size: 1rem;
+  }
+
+  .skills-cv-section a i {
+    font-size: 1.1rem;
+  }
+
+  .skills-card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills-achievements,
+  .skills-knowledge {
+    padding: 1rem;
+  }
+
+  .skills-knowledge-card-container,
+  .skills-extracurriculars-card-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* SMALL SCREENS */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   section {
     padding: 1rem;
   }
@@ -1398,7 +1565,8 @@ input:-khtml-autofill {
     outline: none !important;
   }
 
-  .home-quote {
+  .home-quote,
+  .skills-quote {
     font-size: 1.25rem;
   }
 
@@ -1429,5 +1597,23 @@ input:-khtml-autofill {
 
   .contact-form-section {
     padding: 1rem;
+  }
+
+  .skills-extracurriculars {
+    padding-bottom: 3rem;
+  }
+
+  .skills-card-container {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-card-image-container {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1.25rem;
+  }
+
+  .skills-card h3 {
+    font-size: 1.1rem;
   }
 }
